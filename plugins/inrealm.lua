@@ -730,7 +730,7 @@ function run(msg, matches)
 		end
  	end
 
-    if matches[1] == 'creategroup' and matches[2] then
+    if matches[1] == 'cgroup' and matches[2] then
         group_name = matches[2]
         group_type = 'group'
         return create_group(msg)
@@ -746,7 +746,7 @@ function run(msg, matches)
         return create_group(msg)
     end]]
 
-    if matches[1] == 'createrealm' and matches[2] then
+    if matches[1] == 'crealm' and matches[2] then
 			if not is_sudo(msg) then
 				return "Sudo users only !"
 			end
@@ -1045,9 +1045,9 @@ end
 
 return {
   patterns = {
-    "^[#!/](creategroup) (.*)$",
+    "^[#!/](cgroup) (.*)$",
 	"^[#!/](createsuper) (.*)$",
-    "^[#!/](createrealm) (.*)$",
+    "^[#!/](crealm) (.*)$",
     "^[#!/](setabout) (%d+) (.*)$",
     "^[#!/](setrules) (%d+) (.*)$",
     "^[#!/](setname) (.*)$",
@@ -1067,12 +1067,8 @@ return {
 	"^[#!/](rem) (%d+)$",
     "^[#!/](addadmin) (.*)$", -- sudoers only
     "^[#!/](removeadmin) (.*)$", -- sudoers only
-	"[#!/ ](support)$",
-	"^[#!/](support) (.*)$",
-    "^[#!/](-support) (.*)$",
     "^[#!/](list) (.*)$",
     "^[#!/](log)$",
-    "^[#!/](help)$",
     "^!!tgservice (.+)$",
   },
   run = run
